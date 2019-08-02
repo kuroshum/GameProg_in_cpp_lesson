@@ -19,6 +19,10 @@ void AnimSpriteComponent::Update(float deltaTime) {
 			// カレントフレームを更新する
 			mCurrentFrame[tex_num] += mAnimFPS * deltaTime;
 
+			if (mLoopFlag[tex_num]==false && mCurrentFrame[tex_num] >= AnimTexture.size()) {
+				break;
+			}
+
 			// 必要に応じてカレントフレームを巻き戻す
 			while (mCurrentFrame[tex_num] >= AnimTexture.size()) {
 				mCurrentFrame[tex_num] -= AnimTexture.size();
@@ -31,8 +35,9 @@ void AnimSpriteComponent::Update(float deltaTime) {
 	}
 }
 
-void AnimSpriteComponent::SetAnimTextures(const std::vector<SDL_Texture*>& textures) {
+void AnimSpriteComponent::SetAnimTextures(const std::vector<SDL_Texture*>& textures, bool loop_flag) {
 	mAnimTextures.emplace_back();
+	mLoopFlag.emplace_back(loop_flag);
 	for (auto texture : textures) {
 		mAnimTextures.back().emplace_back(texture);
 	}

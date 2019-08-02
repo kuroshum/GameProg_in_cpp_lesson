@@ -4,6 +4,7 @@
 #include "Actor.h"
 #include "SpriteComponent.h"
 #include "Ship.h"
+#include "Character.h"
 #include "BGSpriteComponent.h"
 
 Game::Game() 
@@ -68,6 +69,7 @@ void Game::ProcessInput() {
 	}
 
 	mShip->ProcessKeyboard(state);
+	mChar->ProcessKeyboard(state);
 }
 
 
@@ -132,6 +134,10 @@ void Game::LoadData()
 	mShip = new Ship(this);
 	mShip->SetPosition(Vector2(100.0f, 384.0f));
 	mShip->SetScale(1.5f);
+
+	mChar = new Character(this);
+	mChar->SetPosition(Vector2(100.0f, 384.0f));
+	mChar->SetScale(1.5f);
 
 	// Create actor for the background (this doesn't need a subclass)
 	Actor* temp = new Actor(this);

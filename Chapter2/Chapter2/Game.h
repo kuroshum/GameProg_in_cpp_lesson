@@ -46,4 +46,6 @@ private:
 
 	class Ship* mShip; // Player's ship
 
+	class Character* mChar;
+
 };
