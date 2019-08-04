@@ -20,5 +20,6 @@ private:
 	// アニメーションのフレームレート
 	float mAnimFPS;
 
+	// アニメーションをループさせるか
 	std::vector<bool> mLoopFlag;
 };

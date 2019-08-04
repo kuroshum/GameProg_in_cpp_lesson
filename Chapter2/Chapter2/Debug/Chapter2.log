@@ -1,5 +1,4 @@
-﻿  AnimSpriteComponent.cpp
-c:\users\ryout\documents\github\gameprog_in_cpp_lesson\chapter2\chapter2\animspritecomponent.cpp(6): warning C4244: '引数': 'float' から 'const unsigned int' への変換です。データが失われる可能性があります。
+﻿  TileMapComponentcpp.cpp
   Chapter2.vcxproj -> C:\Users\ryout\Documents\GitHub\GameProg_in_cpp_lesson\Chapter2\Debug\Chapter2.exe
   C:\SDL2-2.0.9\lib\x86\SDL2.dll
   1 個のファイルをコピーしました

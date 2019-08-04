@@ -11,6 +11,7 @@ AnimSpriteComponent::AnimSpriteComponent(Actor* owner, int drawOrder)
 void AnimSpriteComponent::Update(float deltaTime) {
 	SpriteComponent::Update(deltaTime);
 	
+	// 各テクスチャ(ship, Character)のアニメーションを指定
 	int tex_num = 0;
 	for (auto AnimTexture : mAnimTextures) {
 
@@ -19,6 +20,7 @@ void AnimSpriteComponent::Update(float deltaTime) {
 			// カレントフレームを更新する
 			mCurrentFrame[tex_num] += mAnimFPS * deltaTime;
 
+			// ループさせないアニメーションは止める
 			if (mLoopFlag[tex_num]==false && mCurrentFrame[tex_num] >= AnimTexture.size()) {
 				break;
 			}
@@ -36,14 +38,19 @@ void AnimSpriteComponent::Update(float deltaTime) {
 }
 
 void AnimSpriteComponent::SetAnimTextures(const std::vector<SDL_Texture*>& textures, bool loop_flag) {
+	// アニメーションのテクスチャを格納するvectorを初期化
 	mAnimTextures.emplace_back();
+	
+	// ループするか否かの判定を追加
 	mLoopFlag.emplace_back(loop_flag);
+
+	// アニメーションのテクスチャを格納
 	for (auto texture : textures) {
 		mAnimTextures.back().emplace_back(texture);
 	}
-	
+
+	// アクティブなテクスチャを最初のフレームに設定する
 	if (mAnimTextures.size() > 0) {
-		// アクティブなテクスチャを最初のフレームに設定する
 		mCurrentFrame.emplace_back(0.0f);
 		SetTexture(mAnimTextures.back()[0]);
 	}

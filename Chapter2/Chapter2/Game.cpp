@@ -6,6 +6,7 @@
 #include "Ship.h"
 #include "Character.h"
 #include "BGSpriteComponent.h"
+#include "TileMapComponent.h"
 
 Game::Game() 
 	:mWindow(nullptr),
@@ -68,7 +69,9 @@ void Game::ProcessInput() {
 		mIsRunning = false;
 	}
 
+	// プレイヤーである宇宙船の操作
 	mShip->ProcessKeyboard(state);
+	// プレイヤーであるキャラクターの操作
 	mChar->ProcessKeyboard(state);
 }
 
@@ -135,15 +138,18 @@ void Game::LoadData()
 	mShip->SetPosition(Vector2(100.0f, 384.0f));
 	mShip->SetScale(1.5f);
 
+	// プレイヤーであるキャラクターを作成
 	mChar = new Character(this);
 	mChar->SetPosition(Vector2(100.0f, 384.0f));
 	mChar->SetScale(1.5f);
 
 	// Create actor for the background (this doesn't need a subclass)
-	Actor* temp = new Actor(this);
-	temp->SetPosition(Vector2(512.0f, 384.0f));
+	Actor* temp_bg = new Actor(this);
+	temp_bg->SetPosition(Vector2(512.0f, 384.0f));
+
+	/*---------------------------------------------------------
 	// Create the "far back" background
-	BGSpriteComponent* bg = new BGSpriteComponent(temp);
+	BGSpriteComponent* bg = new BGSpriteComponent(temp_bg);
 	bg->SetScreenSize(Vector2(1024.0f, 768.0f));
 	std::vector<SDL_Texture*> bgtexs = {
 		GetTexture("Assets/Farback01.png"),
@@ -151,8 +157,9 @@ void Game::LoadData()
 	};
 	bg->SetBGTextures(bgtexs);
 	bg->SetScrollSpeed(-100.0f);
+
 	// Create the closer background
-	bg = new BGSpriteComponent(temp, 50);
+	bg = new BGSpriteComponent(temp_bg, 50);
 	bg->SetScreenSize(Vector2(1024.0f, 768.0f));
 	bgtexs = {
 		GetTexture("Assets/Stars.png"),
@@ -160,6 +167,15 @@ void Game::LoadData()
 	};
 	bg->SetBGTextures(bgtexs);
 	bg->SetScrollSpeed(-200.0f);
+	---------------------------------------------------------*/
+
+	// タイルマップ生成
+	Actor* temp_tm = new Actor(this);
+	temp_tm->SetPosition(Vector2(16.0f, 16.0f));
+	
+	TileMapComponent* tm = new TileMapComponent(temp_tm);
+	SDL_Texture* tiletex = GetTexture("Assets/Tiles.png");
+	tm->SetTileMap(tiletex);
 }
 
 void Game::UnloadData() {
