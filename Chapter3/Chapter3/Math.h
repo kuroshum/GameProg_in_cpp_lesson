@@ -192,6 +192,62 @@ public:
 		return *this;
 	}
 
+	/*-------------------------’Ç‰Á‚µ‚½‰ÓŠ-------------------------------------*/
+
+	// Vector > Vector
+	friend bool operator>(const Vector2& right, const Vector2& left)
+	{
+		if (right.Length() > left.Length())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	// Vector >= Vector
+	friend bool operator>=(const Vector2& right, const Vector2& left)
+	{
+		if (right.Length() >= left.Length())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	// Vector < Vector
+	friend bool operator<(const Vector2& right, const Vector2& left)
+	{
+		if (right.Length() < left.Length())
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	// Vector <= Vector
+	friend bool operator<=(const Vector2& right, const Vector2& left)
+	{
+		if (right.Length() <= left.Length())
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	/*-------------------------------‚±‚±‚Ü‚Å-----------------------------------*/
+
+
 	// Length squared of vector
 	float LengthSq() const
 	{

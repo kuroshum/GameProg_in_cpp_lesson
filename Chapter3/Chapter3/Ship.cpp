@@ -24,7 +24,7 @@ Ship::Ship(Game* game)
 	sc->SetTexture(game->GetTexture("Assets/Ship.png"));
 
 	// インプットコンポーネントとキーとスピードを作成
-	InputComponent* ic = new InputComponent(this, 1.0f);
+	InputComponent* ic = new InputComponent(this, 1.0f, Vector2(200.0f, 200.0f));
 	ic->SetForwardKey(SDL_SCANCODE_W);
 	ic->SetBackKey(SDL_SCANCODE_S);
 	ic->SetClockwiseKey(SDL_SCANCODE_A);

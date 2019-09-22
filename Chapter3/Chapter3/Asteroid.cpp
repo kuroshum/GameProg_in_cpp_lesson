@@ -23,7 +23,7 @@ Asteroid::Asteroid(Game* game)
 	/*-------------------------追加した箇所-------------------------------------*/
 
 	// 運動コンポーネントを作成し、前進速度を設定する
-	mMove = new MoveComponent(this, 0.1f);
+	mMove = new MoveComponent(this, 0.1f, Vector2(140.0f, 140.0f));
 	Vector2 force = Vector2(10.0f, 10.0f);
 	mMove->AddForce(force);
 	//mc->SetForwardSpeed(150.0f);

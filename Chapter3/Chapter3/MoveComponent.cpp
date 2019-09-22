@@ -1,11 +1,12 @@
 #include "MoveComponent.h"
 #include "Actor.h"
 
-MoveComponent::MoveComponent(class Actor* owner, float mass, int updateOrder)
+MoveComponent::MoveComponent(class Actor* owner, float mass, Vector2 velocityLimit, int updateOrder)
 	:Component(owner, updateOrder),
 	mAngularSpeed(0.0f),
 	mForwardSpeed(Vector2::Zero),
-	mMass(mass)
+	mMass(mass),
+	mVelocityLimit(velocityLimit)
 {
 
 }
@@ -31,6 +32,13 @@ void MoveComponent::Update(float deltaTime)
 		mFowardAcceleration = mSumOfForces * (1.0f / mMass);
 		// 速度を更新
 		mForwardSpeed += mFowardAcceleration * deltaTime;
+
+		// 速度を制限する
+		// Math.h を少しいじりました。
+		if (mForwardSpeed > mVelocityLimit)
+		{
+			mForwardSpeed = mVelocityLimit;
+		}
 
 		mSumOfForces = Vector2::Zero;
 

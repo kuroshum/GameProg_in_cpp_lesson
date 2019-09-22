@@ -6,7 +6,7 @@ class MoveComponent : public Component
 {
 public:
 	// UpdateOrderの値が小さいほど、先に更新される
-	MoveComponent(class Actor* owner, float mass, int updateOrder = 10);
+	MoveComponent(class Actor* owner, float mass, Vector2 velocityLimit, int updateOrder = 10);
 
 	void Update(float deltaTime) override;
 
@@ -47,6 +47,8 @@ private:
 	Vector2 mSumOfForces;
 	// 速度
 	Vector2 mVelocity;
+	// 制限速度
+	Vector2 mVelocityLimit;
 	// 加速度
 	Vector2 mFowardAcceleration;
 	/*-------------------------------ここまで-----------------------------------*/

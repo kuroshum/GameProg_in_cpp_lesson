@@ -2,8 +2,8 @@
 #include "Actor.h"
 #include "Math.h"
 
-InputComponent::InputComponent(class Actor* owner, float mass)
-	:MoveComponent(owner, mass),
+InputComponent::InputComponent(class Actor* owner, float mass, Vector2 velocityLimit)
+	:MoveComponent(owner, mass, velocityLimit),
 	mForwardKey(0),
 	mBackKey(0),
 	mClockwiseKey(0),
