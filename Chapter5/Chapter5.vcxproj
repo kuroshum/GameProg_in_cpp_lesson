@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\soil.1.16.0\build\native\soil.props" Condition="Exists('packages\soil.1.16.0\build\native\soil.props')" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{82F1FB86-9A68-41E8-AA1D-0AA193819E7A}</ProjectGuid>
+    <RootNamespace>Chapter5</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.0.5\include;C:\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.9\lib\x86;C:\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "C:\SDL2-2.0.9\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.0.5\include;C:\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.9\lib\x86;C:\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "C:\SDL2-2.0.9\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.0.5\include;C:\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.9\lib\x86;C:\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "C:\SDL2-2.0.9\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\SDL2_image-2.0.5\include;C:\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\SDL2-2.0.9\lib\x86;C:\SDL2_image-2.0.5\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PreBuildEvent>
+      <Command>xcopy "C:\SDL2-2.0.9\lib\x86\*.dll" "$(OutDir)" /i /s /y</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="CircleComponent.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
+    <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="MoveComponent.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="SpriteComponent.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="VertexArray.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Actor.h" />
+    <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="CircleComponent.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="InputComponent.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="MoveComponent.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="SpriteComponent.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="VertexArray.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Shaders\Basic.frag" />
+    <None Include="Shaders\Basic.vert" />
+    <None Include="Shaders\Sprite.frag" />
+    <None Include="Shaders\Sprite.vert" />
+    <None Include="Shaders\Transform.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Asteroid.png" />
+    <Image Include="Assets\Laser.png" />
+    <Image Include="Assets\Ship.png" />
+    <Image Include="Assets\ShipWithThrust.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets" Condition="Exists('packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" />
+    <Import Project="packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets" Condition="Exists('packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\nupengl.core.redist.0.1.0.1\build\native\nupengl.core.redist.targets'))" />
+    <Error Condition="!Exists('packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\nupengl.core.0.1.0.1\build\native\nupengl.core.targets'))" />
+    <Error Condition="!Exists('packages\soil.1.16.0\build\native\soil.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\soil.1.16.0\build\native\soil.props'))" />
+  </Target>
+</Project>
