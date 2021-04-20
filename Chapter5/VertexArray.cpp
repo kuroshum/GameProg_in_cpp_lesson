@@ -38,15 +38,33 @@ VertexArray::VertexArray(const float* verts, unsigned int numVerts,
 	// Specify the vertex attributes
 	// (For now, assume one vertex format)
 	// Position is 3 floats starting at offset 0
+
+	/*--------------------------------------------------------------------------
+	 * 頂点バッファが以下のように、頂点座標(3つ)・テクスチャ座標(2つ)・頂点カラー(4つ)で構成
+	 
+	float vertices[] = {
+		-0.5f,  0.5f, 0.f, 0.f, 0.f, 1.f, 0.f, 0.f, 1.f, // top left
+		 0.5f,  0.5f, 0.f, 1.f, 0.f, 0.f, 1.f, 0.f, 1.f, // top right
+		 0.5f, -0.5f, 0.f, 1.f, 1.f, 0.f, 0.f, 1.f, 1.f, // bottom right
+		-0.5f, -0.5f, 0.f, 0.f, 1.f, 1.f, 0.f, 1.f, 1.f  // bottom left
+	};
+	--------------------------------------------------------------------------*/
+
+	// 頂点座標
+	// ストライドは9、頂点座標は0～2番目の要素だからオフセットは0
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 9, 0);
 	
+	// テクスチャ座標
+	// 頂点座標は3～4番目の要素だからオフセットは3
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 9,
 		reinterpret_cast<void*>(sizeof(float) * 3));
 
+	// 頂点カラー
+	// 頂点座標は5～8番目の要素だからオフセットは5
 	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(float) * 5,
+	glVertexAttribPointer(2, 4, GL_FLOAT, GL_FALSE, sizeof(float) * 9,
 		reinterpret_cast<void*>(sizeof(float) * 5));
 
 	
