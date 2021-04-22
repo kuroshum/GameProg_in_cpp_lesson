@@ -339,20 +339,20 @@ std::string Renderer::split(std::string str, char split_word, int split_word_num
 	return name;
 }
 
-Shader* Renderer::GetMeshShaders(const std::string& shaderName, MeshComponent* mc)
+Shader* Renderer::GetMeshShaders(const std::string& shader_and_fileName_cnt, MeshComponent* mc)
 {
 	Shader* s = nullptr;
 
- 	std::string shaderN = split(shaderName, '_', 1);
+ 	std::string shaderName = split(shader_and_fileName_cnt, '_', 1);
 
 	std::string shader_path("Shaders/");
 	std::string vert_extension(".vert");
 	std::string frag_extension(".frag");
 
-	std::string vertName = shader_path + shaderN + vert_extension;
-	std::string fragName = shader_path + shaderN + frag_extension;
+	std::string vertName = shader_path + shaderName + vert_extension;
+	std::string fragName = shader_path + shaderName + frag_extension;
 
-	auto iter = mMeshShaders.find(shaderName);
+	auto iter = mMeshShaders.find(shader_and_fileName_cnt);
 	if (iter != mMeshShaders.end())
 	{
 		s = iter->second;
@@ -363,7 +363,7 @@ Shader* Renderer::GetMeshShaders(const std::string& shaderName, MeshComponent* m
 		if (s->Load(vertName, fragName))
 		{
 			s->SetActive();
-			mMeshShaders.emplace(shaderName, s);
+			mMeshShaders.emplace(shader_and_fileName_cnt, s);
 		}
 		else
 		{
@@ -372,8 +372,6 @@ Shader* Renderer::GetMeshShaders(const std::string& shaderName, MeshComponent* m
 			
 		}
 	}
-
-	
 
 	return s;
 }
@@ -436,7 +434,7 @@ void Renderer::CreateSpriteVerts()
 
 // ===========================================
 // ‰Û‘è6.2
-std::string format(const char* chars1, const char* chars2, std::string str3)
+std::string Renderer::format(const char* chars1, const char* chars2, std::string str3)
 {
 	std::string str1(chars1);
 	std::string str2(chars2);
@@ -500,14 +498,6 @@ void Renderer::SetLightUniforms(Shader* shader)
 		tmp_uniform_name = format("uPointLight[", "].mRadius", std::to_string(i));
 		shader->SetFloatUniform(tmp_uniform_name.c_str(), mPointLight[i].mRadius);
 	}
-	
-	/*
-	for (int i = 0; i < 4; i++)
-	{
-		const char* tmp = format("uPointLight[", "].mPosition", std::to_string(i));
-		shader->SetVectorUniform(tmp, mPointLight[i].mPosition);
-	}
-	*/
 	// ===========================================
 
 }

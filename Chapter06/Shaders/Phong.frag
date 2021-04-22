@@ -70,6 +70,9 @@ uniform DirectionalLight uDirLight;
 
 void main()
 {
+	// ===========================================
+	// ‰Û‘è6.2
+	
 	/*
 	// Surface normal
 	vec3 N = normalize(fragNormal);
@@ -90,8 +93,6 @@ void main()
 		Phong += Diffuse + Specular;
 	}
 	*/
-	// ===========================================
-	// ‰Û‘è6.2
 	
 	// Surface normal
 	vec3 N = normalize(fragNormal);
@@ -102,7 +103,7 @@ void main()
 		float distnce = distance(uPointLight[i].mPosition, fragWorldPos);
 		// Vector from surface to light
 		//vec3 L_point = normalize(-uPointLight.mDirection);
-		// Vector from surface to camera
+		// Vector from surface to light
 		vec3 V_point = normalize(uPointLight[i].mPosition - fragWorldPos);
 		// Reflection of -L about N
 		vec3 R_point = normalize(reflect(-V_point, N));

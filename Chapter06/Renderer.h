@@ -86,6 +86,8 @@ public:
 	// ‰Û‘è6.2
 	void SetPointLightNum(int pointLigtNUm) { mPointLight = new PointLight[pointLigtNUm]; }
 	PointLight* GetPointLight() { return mPointLight; }
+
+	std::string format(const char* chars1, const char* chars2, std::string str3);
 	// ===========================================
 
 	float GetScreenWidth() const { return mScreenWidth; }
